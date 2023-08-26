@@ -1,6 +1,7 @@
 import { Link,Outlet } from "react-router-dom";
 const Navbar = () => {
   return <>
+  <div className="background_nav">
   <nav className="body_nav">
     <div className="logo-block">
     <img src="../src/assests/logo.png" alt="logo" id = "logo" />
@@ -13,6 +14,7 @@ const Navbar = () => {
         <li><Link className="nav-links" to={"profile"}>Profile</Link></li>
       </ul>
   </nav>
+  </div>
   <Outlet/>
 
   

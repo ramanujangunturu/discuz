@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/signup" method="post">
+         <label for="name">Full Name</label>
+         <input type="text" name="name" id="name" value="<%= user.name %>"  ><br>
+
+         <label for="username">Username</label>
+         <input type="text" name="username" id="username" value="<%= user.username %>"><br>
+         <p id="username_error"><%= messages.usernameMessage || " " %> </p>
+
+         <label for="email">E-mail</label>
+         <input type="text" name="email" id="email" value="<%= user.email %>"><br>
+         
+         <label for="password">Password</label>
+         <input type="text" name="password" id="password"><br>
+         <p id = "password_ error"><%= messages.passwordMessage || " " %></p>
+         <label for="confirmPassword">Confirm Password</label>
+         <input type="text" name="confirmPassword" id="confirmPassword"><br>
+
+         <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
