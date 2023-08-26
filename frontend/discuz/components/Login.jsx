@@ -21,7 +21,11 @@ const Login = () => {
         } else if (res.data === "password is incorrect") {
           setLoginMessage("password incorrect");
         } else if (res.data === "login successful") {
+          console.log("setting storage");
+          sessionStorage.setItem("username", username);
           navigate("/home");
+          // const l = sessionStorage.getItem("username");
+          // console.log(l);
         }
       })
       .catch((err) => {
@@ -31,30 +35,43 @@ const Login = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username</label>
+      <div class="login_background">
+        <div class="login_shape"></div>
+        <div class="login_shape"></div>
+      </div>
+      <form id="login_form" onSubmit={handleSubmit}>
+        <h1>Discuz</h1>
+        <label className="login_label" htmlFor="username">
+          Username
+        </label>
         <input
           type="text"
           name="username"
           id="username"
+          className="login_input"
           placeholder="username"
           onChange={(e) => {
             setUsername(e.target.value);
           }}
         />
         <br />
-        <label htmlFor="password">Password</label>
+        <label className="login_label" htmlFor="password">
+          Password
+        </label>
         <input
           type="password"
           name="password"
-          id="password"
+          id="password "
+          className="login_input"
           placeholder="password"
           onChange={(e) => {
             setPassword(e.target.value);
           }}
         />
-        <p id="login_message">{loginMessage}</p>
-        <button type="submit">Log in</button>
+        <p id="login_message"> {loginMessage}</p>
+        <button id="login_submit" type="submit">
+          Log in
+        </button>
       </form>
     </>
   );

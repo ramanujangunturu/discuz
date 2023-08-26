@@ -1,9 +1,9 @@
 const Home = () => {
     
-
-
+    const username = sessionStorage.getItem("username");
+    console.log(username)
     
-    return (  <h1>Home</h1> );
+    return (  <></> );
 }
  
 export default Home;

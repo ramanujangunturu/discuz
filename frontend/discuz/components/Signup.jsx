@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -46,10 +46,10 @@ const Login = () => {
               username: username,
               email: email,
               password: password,
-              confirmPassword: cnfpassword
+              confirmPassword: cnfpassword,
             })
             .then((res) => {
-              console.log("inside signup")
+              console.log("inside signup");
               console.log(res);
               navigate("/login");
             })
@@ -63,62 +63,72 @@ const Login = () => {
       });
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Full Name</label>
-      <input
-        type="text"
-        name="name"
-        id="name"
-        defaultValue={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <br />
-      <p id="username_error">{usernameError}</p>
-      <label htmlFor="username">Username</label>
-      <input
-        type="text"
-        name="username"
-        id="username"
-        defaultValue={username}
-        onChange={(e) => {
-          setUsername(e.target.value);
-        }}
-      />
-      <br />
-      <p id="username_error"> </p>
-      <label htmlFor="email">E-mail</label>
-      <input
-        type="text"
-        name="email"
-        id="email"
-        defaultValue={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <br />
-      <label htmlFor="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        defaultValue={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <p id="password error">{passwordError}</p>
-      <br />
-      <p id="password_ error"></p>
-      <label htmlFor="confirmPassword">Confirm Password</label>
+    <>
+      <div class="signup_background">
+        <div class="signup_shape"></div>
+        <div class="signup_shape"></div>
+      </div>
+      <form id="signup_form"onSubmit={handleSubmit}>
+        <label htmlFor="name"className="signup_label">Full Name</label>
+        <input
+          type="text"
+          name="name"
+          className="signup_input"
+          id="name"
+          defaultValue={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <br />
+        <p id="username_error">{usernameError}</p>
+        <label htmlFor="username" className="signup_label">Username</label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          className="signup_input"
+          defaultValue={username}
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+        />
+        <br />
+        <p id="username_error" className="signup_message"> </p>
+        <label htmlFor="email" className="signup_label">E-mail</label>
+        <input
+          type="text"
+          className="signup_input"
+          name="email"
+          id="email"
+          defaultValue={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <br />
+        <label htmlFor="password" className="signup_label">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          className="signup_input"
+          defaultValue={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <p id="password error" className="signup_message">{passwordError}</p>
+        <br />
+        <label htmlFor="confirmPassword" className="signup_label">Confirm Password</label>
 
-      <input
-        type="password"
-        name="confirmPassword"
-        id="confirmPassword"
-        defaultValue={cnfpassword}
-        onChange={(e) => setCnfpassword(e.target.value)}
-      />
-      <br />
-      <button type="submit">submit</button>
-    </form>
+        <input
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          className="signup_input"
+          defaultValue={cnfpassword}
+          onChange={(e) => setCnfpassword(e.target.value)}
+        />
+        <br />
+        <button id="signup_submit"type="submit">submit</button>
+      </form>
+    </>
   );
 };
 
-export default Login;
+export default Signup;
