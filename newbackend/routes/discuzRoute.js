@@ -23,6 +23,41 @@ discuzRoute.post("/", async (req, res) => {
   }
 });
 
+discuzRoute.get("/:id", async (req, res) => {
+  try {
+    const post = await PostModel.findById(req.params.id);
+    res.status(200).send(post);
+  } catch (err) {
+    console.log(err)
+    res.status(400).send("Post not found");
+  }
+});
+
+discuzRoute.get("/:id/comments", async (req, res) => {
+  
+  try {
+    console.log(req.params.id)
+    const post = await PostModel.findById(req.params.id);
+    res.status(200).json(post.comments);
+  } catch (err) {
+    console.log(err)
+    res.status(400).send("Post not found");
+  }
+});
+
+discuzRoute.post("/:id", async(req,res)=>{ 
+  try{
+    const post = await PostModel.findById(req.params.id)
+    post.comments.push({username: req.body.username, comment: req.body.comment})
+    const newPost = await post.save()
+    console.log(newPost)
+    res.status(200).send(newPost)
+  }catch(err){
+    console.log(err)
+    res.status(400).send("Comment not found")
+  }
+})
+
 
 discuzRoute.get("/",async(req,res)=>{
   const posts = await PostModel.find()

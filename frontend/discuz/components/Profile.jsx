@@ -21,9 +21,9 @@ const Profile = () => {
 
   return (
     <>
-      <div class="card">
+      <div className="card">
         <h3>Profile</h3>
-        <h4>username</h4>
+        <h4>Username</h4>
         <p>{userProfile.username}</p>
         <h4>Name</h4>
         <p>{userProfile.name}</p>

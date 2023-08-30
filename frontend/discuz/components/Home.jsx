@@ -10,7 +10,7 @@ const Home = () => {
     axios
       .get("http://localhost:5000/discuz")
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setData(res.data);
       })
       .catch((err) => {
@@ -18,6 +18,7 @@ const Home = () => {
       });
   }, []);
 
+  
   const username = sessionStorage.getItem("username");
   //   console.log(username);
   return (

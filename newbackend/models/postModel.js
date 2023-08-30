@@ -15,8 +15,8 @@ const postSchema = new Schema({
         required: [true, "This field is required."],
     },
     comments: [{
-        userId: {
-            type: mongoose.Schema.Types.ObjectId,
+        username: {
+            type: String,
         },
         comment: {
             type: String

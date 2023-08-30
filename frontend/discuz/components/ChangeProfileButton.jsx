@@ -1,5 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
+
 const ChangeProfileButton = () => {
-    return ( <><button id="profileChanger">Change profile</button></>);
+    const navigate = useNavigate();
+    const handleClick = ()=>{
+        navigate("/home/profileUpdater")
+    }
+
+
+    return ( <><button onClick = {handleClick}id="profileChanger">Change profile</button></>);
 }
  
 export default ChangeProfileButton;

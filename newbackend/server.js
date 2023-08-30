@@ -5,6 +5,7 @@ const signupRoute = require("./routes/signupRoute");
 const loginRoute = require("./routes/loginRoute");
 const discuzRoute = require("./routes/discuzRoute");
 const userDataRoute = require("./routes/userDataRoute");
+const updateProfileRoute = require("./routes/updateProfileRoute");
 const cors = require("cors")
 
 app.use(
@@ -25,6 +26,7 @@ app.use("/signup", signupRoute);
 app.use("/login", loginRoute);
 app.use("/discuz", discuzRoute);
 app.use("/userData", userDataRoute);
+app.use("/updateProfile", updateProfileRoute);
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
