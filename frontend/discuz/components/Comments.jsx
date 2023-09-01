@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Comments = (props) => {
-  const [comments, setComments] = useState([]);
+
+const Comments = ({comments,setComments,Id}) => {
+  
   useEffect(() => {
-    console.log(props);
+    // console.log(;  
+    console.log("running use Effect");
     axios
-      .get(`http://localhost:5000/discuz/${props.Id}/comments`)
+      .get(`http://localhost:5000/discuz/${Id}/comments`)
       .then((res) => {
-        console.log(res.data, "comment check");
+        // console.log(res.data, "comment check");
+        // console.log("setting comments")
         setComments(res.data);
       })
       .catch((err) => {
@@ -17,20 +20,25 @@ const Comments = (props) => {
       });
   }, []);
 
+
+//   console.log("running");
+
   const commentList = comments.map((comment) => {
     return (
-      <div>
+      <div key={comment._id}>
         <h4>{comment.username}</h4>
         <p>{comment.comment}</p>
       </div>
     );
-    });
+  });
 
-    console.log(comments)
-  
+  console.log(commentList);
+
+  // console.log(comments)
+
   return (
     <>
-    <h1>comments</h1>
+      <h1>comments</h1>
       {commentList}
     </>
   );

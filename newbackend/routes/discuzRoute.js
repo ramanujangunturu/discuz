@@ -50,8 +50,8 @@ discuzRoute.post("/:id", async(req,res)=>{
     const post = await PostModel.findById(req.params.id)
     post.comments.push({username: req.body.username, comment: req.body.comment})
     const newPost = await post.save()
-    console.log(newPost)
-    res.status(200).send(newPost)
+    // console.log(newPost)
+    res.status(200).send(newPost.comments[newPost.comments.length-1])
   }catch(err){
     console.log(err)
     res.status(400).send("Comment not found")

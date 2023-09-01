@@ -2,6 +2,15 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[javascript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[cpp]": {
+      "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "files.associations": {
+      "*.ejs": "html",
+      "string_view": "cpp",
+      "regex": "cpp",
+      "ostream": "cpp"
     }
   }
   
