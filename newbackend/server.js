@@ -6,17 +6,20 @@ const loginRoute = require("./routes/loginRoute");
 const discuzRoute = require("./routes/discuzRoute");
 const userDataRoute = require("./routes/userDataRoute");
 const updateProfileRoute = require("./routes/updateProfileRoute");
-const cors = require("cors")
+const cors = require("cors");
+require('dotenv').config();
 
 app.use(
   cors({
     origin: "http://localhost:5173",
 })
 )
-mongoose.connect("mongodb://0.0.0.0/Users", {
+mongoose.connect(`mongodb+srv://ramanujangunturu:${process.env.PASSWORD}@cluster0.nxbxyxu.mongodb.net/`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+
 //this parses data into json format
 app.use(express.json());
 //this parses data into url encoded format
