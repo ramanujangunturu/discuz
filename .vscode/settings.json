@@ -10,7 +10,20 @@
       "*.ejs": "html",
       "string_view": "cpp",
       "regex": "cpp",
-      "ostream": "cpp"
+      "ostream": "cpp",
+      "deque": "cpp",
+      "string": "cpp",
+      "vector": "cpp",
+      "iostream": "cpp",
+      "array": "cpp",
+      "forward_list": "cpp",
+      "list": "cpp",
+      "unordered_map": "cpp",
+      "unordered_set": "cpp",
+      "initializer_list": "cpp",
+      "ranges": "cpp",
+      "span": "cpp",
+      "valarray": "cpp"
     }
   }
   
