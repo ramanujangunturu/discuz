@@ -18,7 +18,7 @@ const Signup = () => {
     console.log("inside handle submit");
     e.preventDefault();
     axios
-      .post("http://localhost:5000/signup/check", {
+      .post("https://discuz.onrender.com/signup/check", {
         username: username,
       })
       .then((res) => {
@@ -41,7 +41,7 @@ const Signup = () => {
         if (passwordFlag === true || usernameFlag === true) {
         } else {
           axios
-            .post("http://localhost:5000/signup", {
+            .post("https://discuz.onrender.com/signup", {
               name: name,
               username: username,
               email: email,
@@ -69,6 +69,10 @@ const Signup = () => {
         <div class="signup_shape"></div>
       </div>
       <form id="signup_form"onSubmit={handleSubmit}>
+        <div className="align_login_signup" style={{marginBottom:"10px"}}>
+        <img src="/src/assests/logo.png" alt="logo" id="login_logo" />
+        <h1>Discuz</h1>
+        </div>
         <label htmlFor="name"className="signup_label">Full Name</label>
         <input
           type="text"
@@ -78,8 +82,8 @@ const Signup = () => {
           defaultValue={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <br />
-        <p id="username_error">{usernameError}</p>
+        
+        {/* <p id="username_error" className="signup_message">{usernameError}</p> */}
         <label htmlFor="username" className="signup_label">Username</label>
         <input
           type="text"
@@ -91,8 +95,7 @@ const Signup = () => {
             setUsername(e.target.value);
           }}
         />
-        <br />
-        <p id="username_error" className="signup_message"> </p>
+        <p id="username_error" className="signup_message"> {usernameError}</p>
         <label htmlFor="email" className="signup_label">E-mail</label>
         <input
           type="text"
@@ -102,7 +105,6 @@ const Signup = () => {
           defaultValue={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <br />
         <label htmlFor="password" className="signup_label">Password</label>
         <input
           type="password"
@@ -112,8 +114,6 @@ const Signup = () => {
           defaultValue={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <p id="password error" className="signup_message">{passwordError}</p>
-        <br />
         <label htmlFor="confirmPassword" className="signup_label">Confirm Password</label>
 
         <input
@@ -124,7 +124,7 @@ const Signup = () => {
           defaultValue={cnfpassword}
           onChange={(e) => setCnfpassword(e.target.value)}
         />
-        <br />
+        <p id="password_error" className="signup_message">{passwordError}</p>
         <button id="signup_submit"type="submit">submit</button>
       </form>
     </>

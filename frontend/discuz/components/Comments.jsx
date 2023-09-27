@@ -8,7 +8,7 @@ const Comments = ({comments,setComments,Id}) => {
     // console.log(;  
     console.log("running use Effect");
     axios
-      .get(`http://localhost:5000/discuz/${Id}/comments`)
+      .get(`https://discuz.onrender.com/discuz/${Id}/comments`)
       .then((res) => {
         // console.log(res.data, "comment check");
         // console.log("setting comments")
@@ -32,7 +32,7 @@ const Comments = ({comments,setComments,Id}) => {
     );
   });
 
-  console.log(commentList);
+  // console.log(commentList);
 
   // console.log(comments)
 

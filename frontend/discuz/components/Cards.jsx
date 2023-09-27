@@ -40,7 +40,7 @@ const Cards = ({ cardData }) => {
         >
           {item.content}
         </p> 
-        <button id={item._id} onClick={handleClick} className="viewDiscussionButton" type="button">View Discussion</button>
+        <button id={item._id} onClick={handleClick} className="viewDiscussionButton profileChanger" type="button">View Discussion</button>
       </div>
     );
   });

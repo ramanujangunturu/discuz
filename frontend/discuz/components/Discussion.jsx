@@ -18,7 +18,7 @@ const Discussion = () => {
     } else {
       setError("");
       axios
-        .post("http://localhost:5000/discuz", {
+        .post("https://discuz.onrender.com/discuz", {
           username: username,
           title: title,
           content: content,
@@ -26,11 +26,11 @@ const Discussion = () => {
         .then((res) => {
           console.log("inside discussion");
           console.log(res);
+          navigate("/home")
         })
         .catch((err) => {
           console.log(err);
         });
-        navigate("/home")
     }
   };
 
@@ -38,30 +38,30 @@ const Discussion = () => {
     <>
       <div className="container">
         <div class="discuz_background">
-          <h3>Post a Discussion</h3>
-          <form id="Post discussion" onSubmit={handlesubmit}>
-            <label htmlFor="title">Title</label>
+          <h3 id="post_discussion_heading">Post a Discussion</h3>
+          <form id="Post_discussion" onSubmit={handlesubmit}>
+            <label htmlFor="title">Title</label><br />
             <input
               type="text"
               id="discuz_title"
               name="title"
-              placeholder="Title"
               onChange={(e) => {
                 setTitle(e.target.value);
               }}
             />
-            <label htmlFor="content">Content</label>
+            <br />
+            <label htmlFor="content">Content</label><br />
             <textarea
               id="discuz_content"
               name="content"
-              placeholder="Write something.."
               style={{ height: "200px" }}
               onChange={(e) => {
                 setContent(e.target.value);
               }}
             ></textarea>
             <p id="post_error">{error}</p>
-            <input type="submit" id="discuz_submit" value="Submit" />
+
+            <button type="submit"  className="discuz_submit" value="Submit" >Submit</button>
           </form>
         </div>
       </div>

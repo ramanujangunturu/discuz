@@ -9,7 +9,7 @@ const Profile = () => {
 //   console.log(profileUsername)
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/userData/${profileUsername}`)
+      .get(`https://discuz.onrender.com/userData/${profileUsername}`)
       .then((res) => {
         // console.log(res);
         setUserProfile(res.data);

@@ -1,100 +1,108 @@
 @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,600&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
 /* login css starts here */
-*{
+* {
   margin: 0%;
   text-decoration: none;
   padding: 0;
 }
-body{
+.align_login_signup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#login_logo {
+  width: 60px;
+  height: 60px;
+  /* margin-left: 10px; */
+  margin-right: 15px;
+  display: inline-block;
+}
+body {
   background-color: black;
   color: #e5e5e5;
   font-family: poppins;
   list-style: none;
   list-style-type: none;
-  height: 100vh;
+  height: 101vh;
 }
-.login_background{
+.login_background {
   width: 430px;
   height: 520px;
   position: absolute;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
 }
- .login_shape{
+.login_shape {
   height: 150px;
-  width:150px;
+  width: 150px;
   position: absolute;
   border-radius: 50%;
 }
-.login_shape:first-child{
-  background: linear-gradient(
-      #016f1c,
-      #0bff03
-  );
+.login_shape:first-child {
+  background: linear-gradient(#016f1c, #0bff03);
   left: -30px;
   top: -30px;
 }
-.login_shape:last-child{
-  background: linear-gradient(
-      to right,
-      #0bff03,#016f1c
-  );
+.login_shape:last-child {
+  background: linear-gradient(to right, #0bff03, #016f1c);
   right: -0px;
   bottom: -30px;
 }
-#login_form{
+#login_form {
   height: 360px;
   width: 270px;
-  background-color: rgba(255,255,255,0.13);
+  background-color: rgba(255, 255, 255, 0.13);
   position: absolute;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   border-radius: 10px;
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(255,255,255,0.1);
-  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   padding: 30px 30px 55px 30px;
 }
-#login_form *{
-  font-family: 'Poppins',sans-serif;
+#login_form * {
+  font-family: "Poppins", sans-serif;
   color: #ffffff;
   letter-spacing: 0.5px;
   outline: none;
   border: none;
 }
-#login_form h1{
-  font-size: 35px;
+#login_form h1 {
+  font-size: 38px;
   margin: 0;
+  font-family: poppins;
+  display: inline;
   color: rgb(0, 153, 0);
-  font-weight: 500;
+  font-weight: 700;
   /* line-height: 42px; */
   text-align: center;
 }
 
-.login_label{
+.login_label {
   display: block;
   margin-top: 20px;
   font-size: 15px;
   font-weight: 500;
 }
-.login_input{
+.login_input {
   display: block;
   height: 50px;
   width: 97%;
-  background-color: rgba(255,255,255,0.07);
+  background-color: rgba(255, 255, 255, 0.07);
   border-radius: 3px;
   padding: 0 10px;
   margin-top: 8px;
   font-size: 14px;
   font-weight: 300;
 }
-::placeholder{
+::placeholder {
   color: #e5e5e5;
 }
-  #login_submit{
+#login_submit {
   margin-top: 30px;
   width: 100%;
   background-color: #ffffff;
@@ -106,7 +114,7 @@ body{
   cursor: pointer;
 }
 
-#login_message{
+#login_message {
   margin: 0;
   color: rgb(211, 4, 4);
   padding-top: 5px;
@@ -116,60 +124,52 @@ body{
 
 /* signup css starts here */
 
-
-.signup_background{
-  width: 430px;
+.signup_background {
+  width: 400px;
   height: 520px;
   position: absolute;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
 }
- .signup_shape{
-  height: 150px;
-  width:150px;
+.signup_shape {
+  height: 130px;
+  width: 130px;
   position: absolute;
   border-radius: 50%;
 }
-.signup_shape:first-child{
-  background: linear-gradient(
-      #1845ad,
-      #23a2f6
-  );
+.signup_shape:first-child {
+  background: linear-gradient(#016f1c, #0bff03);
   left: -30px;
   top: -30px;
 }
-.signup_shape:last-child{
-  background: linear-gradient(
-      to right,
-      #ff512f,
-      #f09819
-  );
+.signup_shape:last-child {
+  background: linear-gradient(to right, #016f1c, #0bff03);
   right: -0px;
   bottom: -30px;
 }
-#signup_form{
-  height: 360px;
+#signup_form {
+  height: 420px;
   width: 270px;
-  background-color: rgba(255,255,255,0.13);
+  background-color: rgba(255, 255, 255, 0.13);
   position: absolute;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   border-radius: 10px;
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(255,255,255,0.1);
-  box-shadow: 0 0 40px rgba(8,7,16,0.6);
-  padding: 30px 30px 55px 30px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 20px 20px 20px 20px;
 }
-#signup_form *{
-  font-family: 'Poppins',sans-serif;
+#signup_form * {
+  font-family: "Poppins", sans-serif;
   color: #ffffff;
   letter-spacing: 0.5px;
   outline: none;
   border: none;
 }
-#signup_form h1{
+#signup_form h1 {
   font-size: 35px;
   margin: 0;
   font-weight: 500;
@@ -177,54 +177,62 @@ body{
   text-align: center;
 }
 
-.signup_label{
+.signup_label {
   display: block;
-  margin-top: 20px;
-  font-size: 15px;
+  margin-top: 5px;
+  font-size: 13px;
   font-weight: 500;
 }
-.signup_input{
+.signup_input {
   display: block;
-  height: 50px;
-  width: 97%;
-  background-color: rgba(255,255,255,0.07);
+  height: 30px;
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.07);
   border-radius: 3px;
   padding: 0 10px;
-  margin-top: 8px;
+  /* margin-top: 8px; */
   font-size: 14px;
   font-weight: 300;
 }
-::placeholder{
+::placeholder {
   color: #e5e5e5;
 }
-  #signup_submit{
-  margin-top: 30px;
+#signup_submit {
+  margin-top: 10px;
   width: 100%;
+  padding-top: 5px;
   background-color: #ffffff;
   color: #080710;
-  padding: 15px 0;
+  padding: 5px;
   font-size: 18px;
   font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.signup_message{
+#username_error {
   margin: 0;
   color: rgb(211, 4, 4);
   padding-top: 5px;
+  font-size: 13px;
+}
+#password_error {
+  margin: 0;
+  color: rgb(211, 4, 4);
+  padding-top: 5px;
+  font-size: 13px;
 }
 
-/* signup css ends here */  
+/* signup css ends here */
 
 /* navbar css starts here */
 
-#heading-logo{
+#heading-logo {
   margin: 0;
   font-size: 42px;
 }
 
-.logo-block{
+.logo-block {
   display: flex;
   width: 1.2em;
   align-items: center;
@@ -232,34 +240,33 @@ body{
   align-content: space-around;
   font-family: poppins;
   background-color: black;
-  color: green
+  color: green;
 }
-.logo-block img{
+.logo-block img {
   margin-left: 0;
   margin-right: 15px;
   height: 70px;
   width: 70px;
-
 }
-.background_nav{
-    /* background: linear-gradient(-45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000); */
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-    height: 14.65vh;
-    border-radius: 2px;
-    margin: 10px 0px 20px 0px;
+.background_nav {
+  /* background: linear-gradient(-45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000); */
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 14.65vh;
+  border-radius: 2px;
+  margin: 10px 0px 20px 0px;
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .body_nav {
@@ -270,11 +277,11 @@ body{
   align-content: center;
   font-family: poppins;
   background-color: black;
-  color: green
+  color: green;
 }
-#logo{
-   height: 65px;
-   width: 65px;
+#logo {
+  height: 65px;
+  width: 65px;
 }
 
 .d-flex {
@@ -320,16 +327,15 @@ ul.navbar li {
 
 :root {
   --card-height: 60vh;
-  --card-width: calc(var(--card-height) / 1.5);
+  --card-width: calc(var(--card-height) / 1.2);
 }
-
 
 .card {
   background: #191c29;
   width: var(--card-width);
   height: var(--card-height);
   padding: 3px;
-  margin: 50px 10px 10px 400px;
+  margin: 30px 10px 20px 400px;
   position: relative;
   border-radius: 6px;
   justify-content: center;
@@ -341,19 +347,19 @@ ul.navbar li {
   cursor: pointer;
   /* font-family: cursive; */
 }
-.card h3{
+.card h3 {
   font-size: 25px;
   margin-top: 10px;
   color: #016f1c;
   font-weight: 500;
   margin-bottom: 10px;
 }
-.card h4{
+.card h4 {
   font-size: 20px;
   margin-top: 19px;
   margin-bottom: 10px;
 }
-.card p{
+.card p {
   font-size: 13px;
   font-family: poppins;
   font-weight: 300;
@@ -361,11 +367,9 @@ ul.navbar li {
   margin-bottom: 25px;
 }
 .card:hover {
-  color:white;
+  color: white;
   transition: color 1s;
 }
-
-
 
 .card::before {
   content: "";
@@ -373,13 +377,16 @@ ul.navbar li {
   height: 102%;
   border-radius: 8px;
   background-image: linear-gradient(
-    var(--rotate)
-    , #04850e, #06f90f 43%, #037911);
-    position: absolute;
-    z-index: -1;
-    top: -1%;
-    left: -2%;
-    animation: spin 2.5s linear infinite;
+    var(--rotate),
+    #04850e,
+    #06f90f 43%,
+    #037911
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
 }
 
 .card::after {
@@ -395,10 +402,13 @@ ul.navbar li {
   transform: scale(0.8);
   filter: blur(calc(var(--card-height) / 6));
   background-image: linear-gradient(
-    var(--rotate)
-    ,#04850e, #06f90f 43%, #037911);
-    opacity: 1;
-  transition: opacity .5s;
+    var(--rotate),
+    #04850e,
+    #06f90f 43%,
+    #037911
+  );
+  opacity: 1;
+  transition: opacity 0.5s;
   animation: spin 2.5s linear infinite;
 }
 
@@ -419,19 +429,19 @@ a {
   margin-top: 2rem;
 }
 
-#profileChanger{
-    margin-top: 30px;
-    width: 100%;
-    background-color: #ffffff;
-    color: #080710;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-#profileChanger {
+.profileChanger {
+  margin-top: 30px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 15px 0;
+  color: #080710;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.profileChanger {
   width: 220px;
   height: 50px;
   border: none;
@@ -444,12 +454,23 @@ a {
   border-radius: 10px;
 }
 
-#profileChanger:before {
-  content: '';
-  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+.profileChanger:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
   position: absolute;
   top: -2px;
-  left:-2px;
+  left: -2px;
   background-size: 400%;
   z-index: -1;
   filter: blur(5px);
@@ -457,28 +478,28 @@ a {
   height: calc(100% + 4px);
   animation: glowing 20s linear infinite;
   opacity: 0;
-  transition: opacity .3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
 }
 
-#profileChanger:active {
-  color: #000
+.profileChanger:active {
+  color: #000;
 }
 
-#profileChanger:active:after {
+.profileChanger:active:after {
   background: transparent;
 }
 
-#profileChanger:hover:before {
+.profileChanger:hover:before {
   opacity: 1;
 }
 
-#entender{
+#entender {
   margin-bottom: 100px;
 }
-#profileChanger:after {
+.profileChanger:after {
   z-index: -1;
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -489,31 +510,152 @@ a {
 }
 
 @keyframes glowing {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 /* profile css ends here */
 
 /* post discussion css starts here */
 .discuz_background {
-  height: 360px;
-  width: 270px;
-  background-color: rgba(255,255,255,0.13);
+  height:400px;
+  width: 280px;
+  background-color: rgba(255, 255, 255, 0.13);
   position: absolute;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   border-radius: 10px;
   backdrop-filter: blur(10px);
-  border: 2px solid rgba(255,255,255,0.1);
-  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   padding: 30px 30px 55px 30px;
-  margin-top: 70px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
-.discuz_background textarea input{
-  background-color: #000;
+
+textarea#discuz_content {
+  background-color: rgb(26, 25, 25);
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  height: 189px;
+  font-family: poppins;
+  text-decoration: none;
+  width: 270px;
+  padding: 8px;
+  border: #000;
+}
+#post_discussion_heading {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+#discuz_title {
+  font-family: poppins;
+  background-color: rgb(26, 25, 25);
+  width: 97%;
+  border: rgb(26, 25, 25);
+  padding: 8px;
+  color: white;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  outline: none;
+}
+
+
+.discuz_submit {
+  width: 220px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 15px 0;
+  color: #080710;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.discuz_submit:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.discuz_submit:active {
+  color: #000;
+}
+
+.discuz_submit:active:after {
+  background: transparent;
+}
+
+.discuz_submit:hover:before {
+  opacity: 1;
+}
+
+#entender {
+  margin-bottom: 100px;
+}
+.discuz_submit:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .container {
@@ -524,13 +666,13 @@ a {
   width: 100%;
 }
 
-#discuz_card{
+#discuz_card {
   margin-bottom: 15px;
 }
 /* post discussion css ends here */
 
 /* home discussion css starts here */
-.data_background{
+.data_background {
   width: 90%;
   height: auto;
   /* display: flex; */

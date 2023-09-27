@@ -8,7 +8,7 @@ const ChangeProfileButton = () => {
     }
 
 
-    return ( <><button onClick = {handleClick}id="profileChanger">Change profile</button></>);
+    return ( <><button onClick = {handleClick}className="profileChanger">Change profile</button></>);
 }
  
 export default ChangeProfileButton;

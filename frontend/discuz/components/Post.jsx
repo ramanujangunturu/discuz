@@ -12,7 +12,7 @@ const Post = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/discuz/${postId}`)
+      .get(`https://discuz.onrender.com/discuz/${postId}`)
       .then((res) => {
         // console.log(res);
         setData(res.data);
@@ -28,7 +28,7 @@ const Post = () => {
       setError("");
       const username = sessionStorage.getItem("username");
       axios
-      .post(`http://localhost:5000/discuz/${postId}`, {
+      .post(`https://discuz.onrender.com/discuz/${postId}`, {
         comment: comment,
         username: username,
       })

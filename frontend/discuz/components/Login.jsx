@@ -11,7 +11,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:5000/login/`, {
+        .post(`https://discuz.onrender.com/login/`, {
         username: username,
         password: password,
       })
@@ -24,8 +24,6 @@ const Login = () => {
           console.log("setting storage");
           sessionStorage.setItem("username", username);
           navigate("/home");
-          // const l = sessionStorage.getItem("username");
-          // console.log(l);
         }
       })
       .catch((err) => {
@@ -35,12 +33,15 @@ const Login = () => {
 
   return (
     <>
-      <div class="login_background">
-        <div class="login_shape"></div>
-        <div class="login_shape"></div>
+      <div className="login_background">
+        <div className="login_shape"></div>
+        <div className="login_shape"></div>
       </div>
       <form id="login_form" onSubmit={handleSubmit}>
+        <div className="align_login_signup">
+        <img src="/src/assests/logo.png" alt="logo" id="login_logo" />
         <h1>Discuz</h1>
+        </div>
         <label className="login_label" htmlFor="username">
           Username
         </label>
