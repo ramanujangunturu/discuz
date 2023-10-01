@@ -11,7 +11,7 @@ require('dotenv').config();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173","https://discuz.netlify.app/"]
+    origin: "*",
 })
 )
 mongoose.connect(`mongodb+srv://ramanujangunturu:${process.env.PASSWORD}@cluster0.nxbxyxu.mongodb.net/`, {
