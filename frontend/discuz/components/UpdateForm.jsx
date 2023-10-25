@@ -14,11 +14,11 @@ const UpdateForm = ({userData}) => {
             name: nameState,
             email: emailState,
         };
-        axios.post(`https://discuz.onrender.com/updateProfile/`, data).then((res) => {
+        axios.post(`http://localhost:5000/updateProfile/`, data).then((res) => {
             console.log(res);
         })
         console.log(data)
-        navigate("/home/profile");
+        navigate(`/dashboard/${userData.username}/profile`);
     };
     return (
             <form onSubmit={handleSubmit}>

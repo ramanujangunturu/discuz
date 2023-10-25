@@ -11,7 +11,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-        .post(`https://discuz.onrender.com/login/`, {
+        .post(`http://localhost:5000/login`, {
         username: username,
         password: password,
       })
@@ -23,7 +23,7 @@ const Login = () => {
         } else if (res.data === "login successful") {
           console.log("setting storage");
           sessionStorage.setItem("username", username);
-          navigate("/home");
+          navigate("/dashboard");
         }
       })
       .catch((err) => {

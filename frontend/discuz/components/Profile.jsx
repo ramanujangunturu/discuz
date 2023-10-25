@@ -1,39 +1,56 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import ChangeProfileButton from "./ChangeProfileButton";
-
+import AddFriend from "./AddFriend";
+import { useParams } from "react-router-dom";
 
 const Profile = () => {
   const [userProfile, setUserProfile] = useState("");
-  const profileUsername = sessionStorage.getItem("username");
-//   console.log(profileUsername)
+  const loggedUsername = sessionStorage.getItem("username");
+  const { username } = useParams();
+
   useEffect(() => {
     axios
-      .get(`https://discuz.onrender.com/userData/${profileUsername}`)
+      .get(`http://localhost:5000/userData/${username}`)
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         setUserProfile(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
-
-  return (
-    <>
-      <div className="card">
-        <h3>Profile</h3>
-        <h4>Username</h4>
-        <p>{userProfile.username}</p>
-        <h4>Name</h4>
-        <p>{userProfile.name}</p>
-        <h4>Email</h4>
-        <p>{userProfile.email}</p>
-      <ChangeProfileButton></ChangeProfileButton>
-      </div>
-      <p id="extender"> </p>
-    </>
-  );
+  }, [username]);
+  if (loggedUsername == username) {
+    return (
+      <>
+        <div className="card">
+          <h3>Profile</h3>
+          <h4>Username</h4>
+          <p>{userProfile.username}</p>
+          <h4>Name</h4>
+          <p>{userProfile.name}</p>
+          <h4>Email</h4>
+          <p>{userProfile.email}</p>
+          <ChangeProfileButton></ChangeProfileButton>
+        </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <div className="card">
+          <h3>Profile</h3>
+          <h4>Username</h4>
+          <p>{userProfile.username}</p>
+          <h4>Name</h4>
+          <p>{userProfile.name}</p>
+          <h4>Email</h4>
+          <p>{userProfile.email}</p>
+          <AddFriend username={userProfile.username}></AddFriend>
+        </div>
+      </>
+    );
+  }
 };
 
 export default Profile;

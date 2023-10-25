@@ -8,7 +8,7 @@ const Discussion = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-
+  
   const handlesubmit = (e) => {
     e.preventDefault();
     const username = sessionStorage.getItem("username");
@@ -18,7 +18,7 @@ const Discussion = () => {
     } else {
       setError("");
       axios
-        .post("https://discuz.onrender.com/discuz", {
+        .post("http://localhost:5000/discuz", {
           username: username,
           title: title,
           content: content,
@@ -26,7 +26,7 @@ const Discussion = () => {
         .then((res) => {
           console.log("inside discussion");
           console.log(res);
-          navigate("/home")
+          navigate("/dashboard")
         })
         .catch((err) => {
           console.log(err);
@@ -37,7 +37,7 @@ const Discussion = () => {
   return (
     <>
       <div className="container">
-        <div class="discuz_background">
+        <div className="discuz_background">
           <h3 id="post_discussion_heading">Post a Discussion</h3>
           <form id="Post_discussion" onSubmit={handlesubmit}>
             <label htmlFor="title">Title</label><br />

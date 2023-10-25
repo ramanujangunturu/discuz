@@ -22,7 +22,12 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: [true, "This field is required."],
-    }
+    },
+    friends: [{
+        username: {
+            type: String,
+        }
+    }]
 
 });
 

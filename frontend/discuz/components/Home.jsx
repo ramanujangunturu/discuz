@@ -8,7 +8,7 @@ const Home = () => {
   //   console.log("hello")
   useEffect(() => {
     axios
-      .get("https://discuz.onrender.com/discuz")
+      .get("http://localhost:5000/discuz")
       .then((res) => { 
         // console.log(res);
         setData(res.data);

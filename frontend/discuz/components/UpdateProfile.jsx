@@ -7,7 +7,7 @@ const UpdateProfile = () => {
 
   useEffect(() => {
     const loggedUser = sessionStorage.getItem("username");
-    axios.get(`https://discuz.onrender.com/userData/${loggedUser}`).then((res) => {
+    axios.get(`http://localhost:5000/userData/${loggedUser}`).then((res) => {
       setUser(res.data);
     });
   }, []);

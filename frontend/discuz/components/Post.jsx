@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Comments from "./Comments";
 
 const Post = () => {
+  const navigate = useNavigate();
   const { postId } = useParams();
   const [data, setData] = useState([]);
   const [comment, setComment] = useState("");
@@ -12,7 +14,7 @@ const Post = () => {
 
   useEffect(() => {
     axios
-      .get(`https://discuz.onrender.com/discuz/${postId}`)
+      .get(`http://localhost:5000/discuz/${postId}`)
       .then((res) => {
         // console.log(res);
         setData(res.data);
@@ -23,12 +25,17 @@ const Post = () => {
       });
   }, []);
 
+  const handleProfile=(e)=>{
+    navigate(`/dashboard/${e.target.innerHTML}/profile`)
+    console.log(e.target.innerHTML) 
+  }
+
   const handleClick = () => {
     if (comment) {
       setError("");
       const username = sessionStorage.getItem("username");
       axios
-      .post(`https://discuz.onrender.com/discuz/${postId}`, {
+      .post(`http://localhost:5000/discuz/${postId}`, {
         comment: comment,
         username: username,
       })
@@ -60,10 +67,13 @@ const Post = () => {
           {data.title}
         </h3>
         <h4
+          onClick={handleProfile}
           style={{
             fontSize: "14px",
             marginTop: "3px",
             fontWeight: "110",
+            cursor: "pointer",
+            width: "fit-content"
           }}
         >
           {data.postedBy}

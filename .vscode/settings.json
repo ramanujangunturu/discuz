@@ -23,7 +23,9 @@
       "initializer_list": "cpp",
       "ranges": "cpp",
       "span": "cpp",
-      "valarray": "cpp"
+      "valarray": "cpp",
+      "cmath": "cpp",
+      "functional": "cpp"
     }
   }
   

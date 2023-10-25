@@ -6,18 +6,17 @@ const loginRoute = require("./routes/loginRoute");
 const discuzRoute = require("./routes/discuzRoute");
 const userDataRoute = require("./routes/userDataRoute");
 const updateProfileRoute = require("./routes/updateProfileRoute");
+const chatRoute = require("./routes/chatRoute");
 const cors = require("cors");
 require('dotenv').config();
 
-app.use(
-  cors({
-    origin: "*",
-})
-)
-mongoose.connect(`mongodb+srv://ramanujangunturu:${process.env.PASSWORD}@cluster0.nxbxyxu.mongodb.net/`, {
+app.use(cors());
+
+mongoose.connect("mongodb://0.0.0.0/Users", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
 
 
 //this parses data into json format
@@ -30,12 +29,14 @@ app.use("/login", loginRoute);
 app.use("/discuz", discuzRoute);
 app.use("/userData", userDataRoute);
 app.use("/updateProfile", updateProfileRoute);
-app.set("view engine", "ejs");
+app.use("/chat", chatRoute);
 
 app.get("/", (req, res) => {
   res.send("default page");
 });
 
+
 app.listen(5000, () => {
   console.log("Server running");
 });
+
