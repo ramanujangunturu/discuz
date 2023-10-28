@@ -19,6 +19,7 @@ const navigate = useNavigate()
           >
             message
           </button>
+          <h1 className='hello text-amber-500'>hello</h1>
         </div>
     );
   });

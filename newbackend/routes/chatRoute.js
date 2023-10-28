@@ -3,6 +3,7 @@ const chatRoute = express.Router();
 const http = require("http");
 const { Server } = require("socket.io");
 const connectedUsers = require("../models/connectedUsers");
+const chats = require("../models/chatModel");
 const { connected } = require("process");
 const { randomUUID } = require("crypto");
 
@@ -10,7 +11,7 @@ const server = http.createServer(chatRoute);
 const io = new Server(server, {
   cors: {
     origin: "*",
-  },
+  }
 });
 
 io.use((socket, next) => {
@@ -29,7 +30,7 @@ io.on("connection", async (socket) => {
     socket.emit("userId", user.userID);
     socket.join(user.userID);
     socket.userID = user.userID;
-    console.log(socket.rooms);
+    // console.log(socket.rooms);
   } else {
     const userID = randomUUID();
     const user = new connectedUsers({
@@ -41,7 +42,7 @@ io.on("connection", async (socket) => {
         socket.emit("userId", userID);
         socket.userID = userID;
         socket.join(userID);
-        console.log(socket.rooms);
+        // console.log(socket.rooms);
       } catch (err) {
         console.log(err);
         res.status(400).send("something went wrong");
@@ -57,11 +58,35 @@ io.on("connection", async (socket) => {
   }
   socket.emit("users", users);
 
-  socket.on("private message", (obj) => {
+  socket.on("private message", async (message,to,username) => {
     // console.log(obj.to,"to")
-    console.log(obj.to)
+    console.log(to)
     // console.log(socket)
-    socket.to(obj.to).emit("private message", obj.content,socket.username);
+    const user1 = to;
+    const user2 = socket.userID;
+    const chat = await chats.findOne( { $or: [ {user1:user1,user2:user2}, {user1:user2,user2:user1} ] } );
+    if (chat) {
+      chat.chats.push({ sender: username, message: message });
+      try {
+        const newChat = await chat.save();
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      console.log("else running")
+      const chat = new chats({
+        user1: user1,
+        user2: user2,
+        chats: [{ sender: username, message: message }],
+      });
+      try {
+        const newChat = await chat.save();
+      } catch (err) {
+        console.log(err);
+        res.status(400).send("something went wrong");
+      }
+    }
+    socket.to(to).emit("private message", message,socket.username);
   });
 });
 
@@ -80,6 +105,8 @@ chatRoute.get("/getSocket/:username", async (req, res) => {
     res.status(400).send("something went wrong");
   }
 });
+
+
 
 server.listen(3001, () => {
   console.log("socket server listening on port 3001");

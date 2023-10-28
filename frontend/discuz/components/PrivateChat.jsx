@@ -4,9 +4,11 @@ import { useParams } from "react-router-dom";
 
 const PrivateChat = ({ socket }) => {
   const [message, setMessage] = useState("");
+  const [texts, setTexts] = useState([]);
   const [reciverID, setReciverID] = useState("");
   const { username } = useParams();
   useEffect(() => {
+    console.log(sessionStorage.getItem("username"));
     axios
       .get(`http://localhost:5000/chat/getSocket/${username}`)
       .then((res) => {
@@ -14,30 +16,35 @@ const PrivateChat = ({ socket }) => {
         setReciverID(res.data.userID);
       });
   }, []);
-
+  
   useEffect(() => {
     // console.log(socket);
     if (socket == null) {
-      // console.log("socket");
       return;
     }
+    // console.log(texts);
     socket.on("private message", (recievedMessage, username) => {
-      setMessage(recievedMessage);
+      setTexts((texts)=>[...texts, recievedMessage]);
     });
   }, [socket]);
 
   const handleClick = () => {
-    socket.emit("private message", { content: message, to: reciverID });
+    socket.emit("private message", message, reciverID, sessionStorage.getItem("username"));
+    setTexts((texts)=>[...texts, message]);
+    setMessage("");
   };
 
+  const renderingTexts = texts.map((text) => {
+    return <p key={crypto.randomUUID()}> {text} </p>;
+  });
   if (!reciverID) return <h1>Loading...</h1>;
-
   return (
     <>
-      {message}
-      <form onSubmit={(e)=>e.preventDefault()}>
+      {renderingTexts}
+      <form onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
+          value={message}
           style={{ margin: "20px", padding: "5px" }}
           onChange={(e) => setMessage(e.target.value)}
         />
