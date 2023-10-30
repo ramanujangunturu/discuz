@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
 /* login css starts here */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 * {
-  margin: 0%;
+  margin: 0;
   text-decoration: none;
   padding: 0;
+}
+html {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .align_login_signup {
@@ -186,7 +187,7 @@ body {
   margin-top: 5px;
   font-size: 13px;
   font-weight: 500;
-}
+  }
 .signup_input {
   display: block;
   height: 30px;
@@ -233,32 +234,27 @@ body {
 
 #heading-logo {
   margin: 0;
-  font-size: 42px;
+  /* font-size: 42px; */
 }
 
+.navbar{
+  width: 50vw ;
+}
 .logo-block {
   display: flex;
   width: 1.2em;
   align-items: center;
-  justify-content: space-around;
-  align-content: space-around;
+  justify-content: space-evenly;
   font-family: poppins;
   background-color: black;
   color: green;
 }
-.logo-block img {
-  margin-left: 0;
-  margin-right: 15px;
-  height: 70px;
-  width: 70px;
-}
+
 .background_nav {
   /* background: linear-gradient(-45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000); */
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
-  height: 14.65vh;
   border-radius: 2px;
-  margin: 10px 0px 20px 0px;
 }
 
 @keyframes gradient {
@@ -277,16 +273,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding-bottom: 10px;
   align-content: center;
   font-family: poppins;
   background-color: black;
   color: green;
 }
-#logo {
-  height: 65px;
-  width: 65px;
-}
+
 
 .d-flex {
   display: flex;
@@ -297,9 +289,7 @@ body {
   margin-bottom: 0;
   justify-content: center;
 }
-.gap-5 {
-  gap: 60px;
-}
+
 ul li a {
   color: rgb(0, 153, 0);
   font-size: 22px;
@@ -312,6 +302,8 @@ ul.navbar li {
 .nav-links {
   transition: 0.3s ease-in-out;
   text-decoration: none;
+  font-size: 1.6rem; /* 30px */
+  line-height: 2.125rem; /* 36px */
 }
 .navbar:hover .nav-links {
   filter: blur(5px);
@@ -392,6 +384,31 @@ ul.navbar li {
   left: -2%;
   animation: spin 2.5s linear infinite;
 }
+
+#discuz_card {
+  background-color: rgb(24, 24, 24); 
+  color: #ffffff; 
+  border: 1px solid #333;
+  border-radius: 10px; 
+  padding: 20px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#discuz_card:hover {
+  background-color: black;
+  transform: scale(1.015); 
+}
+
+#discuz_card h3 {
+  font-size: 1.5rem; 
+}
+
+#discuz_card p {
+  font-size: 1rem; /* Content font size */
+}
+
 
 .card::after {
   position: absolute;
@@ -529,8 +546,8 @@ a {
 
 /* post discussion css starts here */
 .discuz_background {
-  height:400px;
-  width: 280px;
+  height: 75vh;
+  width: 30vw;
   background-color: rgba(255, 255, 255, 0.13);
   position: absolute;
   transform: translate(-50%, -50%);
@@ -545,17 +562,22 @@ a {
   margin-bottom: 20px;
 }
 
-textarea#discuz_content {
+#discuz_content {
   background-color: rgb(26, 25, 25);
   color: white;
-  margin-bottom: 20px;
+  padding: 10px;
   margin-top: 5px;
-  height: 189px;
+
+  height: 30vh;
+  resize: none;
   font-family: poppins;
   text-decoration: none;
-  width: 270px;
-  padding: 8px;
+  width: 98%;
   border: #000;
+}
+#discuz_content:focus {
+  outline: none;
+  border: none;
 }
 #post_discussion_heading {
   margin-bottom: 10px;
@@ -564,12 +586,13 @@ textarea#discuz_content {
 #discuz_title {
   font-family: poppins;
   background-color: rgb(26, 25, 25);
-  width: 97%;
+  width: 98%;
   border: rgb(26, 25, 25);
   padding: 8px;
+  font-size: larger;
   color: white;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   outline: none;
 }
 
@@ -670,19 +693,17 @@ textarea#discuz_content {
   width: 100%;
 }
 
-#discuz_card {
-  margin-bottom: 15px;
-}
+
 /* post discussion css ends here */
 
 /* home discussion css starts here */
 .data_background {
-  width: 90%;
+  width: 100vw;
   height: auto;
   /* display: flex; */
   /* align-items: center; */
   /* justify-content: center; */
-  margin: 10px;
+  /* margin: 10px; */
 }
 
 
@@ -736,3 +757,10 @@ textarea#discuz_content {
     padding: 12px 50px;
   }
 }
+
+
+@tailwind components;
+@tailwind utilities;
+@tailwind base;
+
+

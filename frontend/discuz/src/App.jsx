@@ -16,7 +16,7 @@ import "./index.css";
 function App() {
   const [socket, setSocket] = useState(null);
   const [connectedUsers, setConnectedUsers] = useState([]);
-
+  
   const socketSetter = (socket) => {
     setSocket(socket);
     // console.log(socket.userID, "socket");
@@ -26,13 +26,14 @@ function App() {
   }
 
 
+
   return (
     <>
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Navbar socketSetter={socketSetter} userSetter={userSetter}/>}>
+        <Route path="/dashboard" element={<Navbar socketSetter={socketSetter} userSetter={userSetter} />}>
           <Route index element={<Home />} />
           <Route path=":username/profile" element={<Profile />} />
           <Route path="discussion" element={<Discussion />} />

@@ -57,7 +57,7 @@ const Post = () => {
         style={{
           marginLeft: "10px",
         }}
-        id="discuz_card"
+        id="card"
       >
         <h3
           style={{

@@ -54,13 +54,11 @@ const Discussion = () => {
             <textarea
               id="discuz_content"
               name="content"
-              style={{ height: "200px" }}
               onChange={(e) => {
                 setContent(e.target.value);
               }}
             ></textarea>
-            <p id="post_error">{error}</p>
-
+            <p style={{height:"30px",width:"200px",color:"red"}}>{error}</p>
             <button type="submit"  className="discuz_submit" value="Submit" >Submit</button>
           </form>
         </div>

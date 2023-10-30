@@ -1,16 +1,20 @@
-import { Link, Outlet } from "react-router-dom";
-import { useEffect } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import io from "socket.io-client";
 const url = "http://localhost:3001";
 
-const Navbar = ({ socketSetter,userSetter }) => {
+const Navbar = ({ socketSetter, userSetter}) => {
   const username = sessionStorage.getItem("username");
+  const navigate = useNavigate();
+
+  
 
   useEffect(() => {
     const socket = io.connect(url, { autoconncect: false });
     socket.auth = { username: sessionStorage.getItem("username") };
     socket.connect();
     console.log("connected");
+
     socket.on("userId", (userID) => {
       socket.userID = userID;
       socketSetter(socket);
@@ -19,30 +23,42 @@ const Navbar = ({ socketSetter,userSetter }) => {
     socket.onAny((eventName, ...args) => {
       console.log(eventName, args);
     });
-    // socket.on("private message", (content, from ) => { 
-    //   console.log(content, from);
-    // });
 
     socket.on("users", (users) => {
       userSetter(users);
     });
-    
+
     return () => {
       socket.disconnect();
     };
-
   }, []);
 
+  const handleClick = () => {
+    navigate(`/dashboard`);
+  };
 
   return (
     <>
-      <div className="background_nav">
+      <div className="background_nav my-4 ">
         <nav className="body_nav">
-          <div className="logo-block">
-            <img src="/src/assests/logo.png" alt="logo" id="logo" />
-            <h1 id="heading-logo">Discuz</h1>
+          <div className="logo-block w-80 ">
+            <img
+              src="/src/assests/logo.png"
+              onClick={handleClick}
+              style={{ cursor: "pointer" }}
+              className="w-20 h-20"
+              alt="logo"
+            />
+            <h1
+              id="heading-logo"
+              onClick={handleClick}
+              style={{ cursor: "pointer" }}
+              className="text-5xl font-bold"
+            >
+              Discuz
+            </h1>
           </div>
-          <ul className="d-flex align-items-center gap-5 navbar">
+          <ul className="navbar flex justify-evenly flex-row">
             <li>
               {" "}
               <Link className="nav-links" to={""}>

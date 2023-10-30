@@ -11,7 +11,7 @@ const server = http.createServer(chatRoute);
 const io = new Server(server, {
   cors: {
     origin: "*",
-  }
+  },
 });
 
 io.use((socket, next) => {
@@ -35,18 +35,18 @@ io.on("connection", async (socket) => {
     const userID = randomUUID();
     const user = new connectedUsers({
       username: socket.username,
-      userID: userID
+      userID: userID,
     });
-      try {
-        const newUser = await user.save();
-        socket.emit("userId", userID);
-        socket.userID = userID;
-        socket.join(userID);
-        // console.log(socket.rooms);
-      } catch (err) {
-        console.log(err);
-        res.status(400).send("something went wrong");
-      }
+    try {
+      const newUser = await user.save();
+      socket.emit("userId", userID);
+      socket.userID = userID;
+      socket.join(userID);
+      // console.log(socket.rooms);
+    } catch (err) {
+      console.log(err);
+      res.status(400).send("something went wrong");
+    }
   }
 
   const users = [];
@@ -58,55 +58,71 @@ io.on("connection", async (socket) => {
   }
   socket.emit("users", users);
 
-  socket.on("private message", async (message,to,username) => {
-    // console.log(obj.to,"to")
-    console.log(to)
-    // console.log(socket)
-    const user1 = to;
-    const user2 = socket.userID;
-    const chat = await chats.findOne( { $or: [ {user1:user1,user2:user2}, {user1:user2,user2:user1} ] } );
-    if (chat) {
-      chat.chats.push({ sender: username, message: message });
-      try {
-        const newChat = await chat.save();
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
-      console.log("else running")
-      const chat = new chats({
-        user1: user1,
-        user2: user2,
-        chats: [{ sender: username, message: message }],
+  socket.on(
+    "private message",
+    async (message, to, fromUsername, toUsername) => {
+      // console.log(obj.to,"to")
+      console.log(to);
+      console.log(fromUsername, " ", toUsername);
+      // console.log(socket)
+      const user1 = toUsername;
+      const user2 = fromUsername;
+      const chat = await chats.findOne({
+        $or: [
+          { user1: fromUsername, user2: toUsername },
+          { user1: toUsername, user2: fromUsername },
+        ],
       });
-      try {
-        const newChat = await chat.save();
-      } catch (err) {
-        console.log(err);
-        res.status(400).send("something went wrong");
+      if (chat) {
+        chat.chats.push({ sender: fromUsername, message: message });
+        try {
+          const newChat = await chat.save();
+        } catch (err) {
+          console.log(err);
+        }
+      } else {
+        console.log("else running");
+        const chat = new chats({
+          user1: toUsername,
+          user2: fromUsername,
+          chats: [{ sender: fromUsername, message: message }],
+        });
+        try {
+          const newChat = await chat.save();
+        } catch (err) {
+          console.log(err);
+          res.status(400).send("something went wrong");
+        }
       }
+      socket.to(to).emit("private message", message, socket.username);
     }
-    socket.to(to).emit("private message", message,socket.username);
-  });
+  );
 });
+
 
 chatRoute.get("/", (req, res) => {
   res.send("Welcome to the chat room!");
 });
 
-
-chatRoute.get("/getSocket/:username", async (req, res) => {
-  const username = req.params.username;
+chatRoute.get("/getDetails", async (req, res) => {
+  const username = req.query.username;
+  const username2 = req.query.username2;
   try {
-    const user = await connectedUsers.findOne({ username: username });
-    res.status(200).send(user);
+    const SocketUser = await connectedUsers.findOne({ username: username }).select("userID");
+    const Chats = await chats.findOne({
+      $or: [
+        { user1: username, user2: username2 },
+        { user1: username2, user2: username },
+      ],
+    });
+    const userID = SocketUser.userID
+    res.status(200).send({ userID, Chats });
   } catch (err) {
     console.log(err);
     res.status(400).send("something went wrong");
   }
+
 });
-
-
 
 server.listen(3001, () => {
   console.log("socket server listening on port 3001");
