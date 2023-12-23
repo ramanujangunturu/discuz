@@ -23,7 +23,7 @@ const Profile = () => {
   if (loggedUsername == username) {
     return (
       <>
-        <div className="card">
+        <div className="card mx-auto m-12">
           <h3>Profile</h3>
           <h4>Username</h4>
           <p>{userProfile.username}</p>
@@ -38,7 +38,7 @@ const Profile = () => {
   } else {
     return (
       <>
-        <div className="card">
+        <div className="card mx-auto m-12">
           <h3>Profile</h3>
           <h4>Username</h4>
           <p>{userProfile.username}</p>

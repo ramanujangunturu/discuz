@@ -26,7 +26,8 @@
       "valarray": "cpp",
       "cmath": "cpp",
       "functional": "cpp"
-    }
+    },
+    "git.ignoreLimitWarning": true
   }
   
 //how to add a new object

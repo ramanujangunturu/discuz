@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-const DisplayFriends = ({ data, socket }) => {
+const DisplayFriends = ({ data }) => {  
   // console.log(data, "friends");
   const navigate = useNavigate();
   const handleClick = (e) => {
@@ -48,7 +48,7 @@ const DisplayFriends = ({ data, socket }) => {
   } else {
     return (
       <>
-        <h1>Friends</h1>
+        <h1 className="text-4xl font-bold text-center mt-4">Friends</h1>
         <div className="Friends-Container" style={{ display: "flex" }}>
           {cards}
         </div>

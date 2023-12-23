@@ -6,7 +6,7 @@ const ChangeProfileButton = () => {
     const handleClick = ()=>{
         navigate("/updateProfile")
     }
-    return ( <><button onClick = {handleClick}className="profileChanger">Change profile</button></>);
+    return ( <><button onClick = {handleClick}className="profileChanger m-auto my-2">Change profile</button></>);
 }
  
 export default ChangeProfileButton;
