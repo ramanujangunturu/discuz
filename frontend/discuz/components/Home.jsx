@@ -8,7 +8,7 @@ const Home = () => {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get("http://localhost:5000/discuz")
+      .get("https://trydiscuz.onrender.com/discuz")
       .then((res) => {
         // console.log(res);
         setData(res.data);

@@ -11,7 +11,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-        .post(`http://localhost:5000/login`, {
+        .post(`https://trydiscuz.onrender.com/login`, {
         username: username,
         password: password,
       })

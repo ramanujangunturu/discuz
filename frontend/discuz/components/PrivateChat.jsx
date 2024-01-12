@@ -12,7 +12,7 @@ const PrivateChat = ({ socket }) => {
   useEffect(() => {
     console.log(sessionStorage.getItem("username"));
     axios
-      .get(`http://localhost:5000/chat/getDetails?username=${username}&username2=${sessionStorage.getItem("username")}`)
+      .get(`https://trydiscuz.onrender.com/chat/getDetails?username=${username}&username2=${sessionStorage.getItem("username")}`)
       .then((res) => {
         console.log(res.data, "response");
         setReciverID(res.data.userID);

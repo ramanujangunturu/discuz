@@ -15,8 +15,8 @@ module.exports = {
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
-      
     ],
+    "react/prop-types": "off",
     "react-hooks/rules-of-hooks": "error",
     "react/prop-types": "off",
     "react-hooks/exhaustive-deps": "warn"
