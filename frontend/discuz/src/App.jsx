@@ -18,7 +18,7 @@ function App() {
   const [connectedUsers, setConnectedUsers] = useState([]);
   
   const socketSetter = (socket) => {
-    setSocket(socket);
+    setSocket(socket); 
     // console.log(socket.userID, "socket");
   };
   const userSetter = (users) => {
