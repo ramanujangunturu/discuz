@@ -13,6 +13,7 @@ const AddFriend = ({username}) => {
         }))
     }
 
+    
     return ( <button className="profileChanger m-auto my-2" onClick={handleClick}>Add friend</button> );
 }
  
