@@ -3,7 +3,7 @@ import axios from "axios";
 const AddFriend = ({username}) => {
     
     const handleClick=()=>{
-        axios.post(`http://localhost:5000/userData/addfriend`,{
+        axios.post(`https://trydiscuz.onrender.com/userData/addfriend`,{
             username: sessionStorage.getItem("username"),
             friend: username
         })
