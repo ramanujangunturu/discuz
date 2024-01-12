@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
@@ -6,13 +6,10 @@ import axios from "axios";
 const Comments = ({ comments, setComments, Id }) => {
   const navigate = useNavigate();
   useEffect(() => {
-    // console.log(;
     console.log("running use Effect");
     axios
       .get(`http://localhost:5000/discuz/${Id}/comments`)
       .then((res) => {
-        // console.log(res.data, "comment check");
-        // console.log("setting comments")
         setComments(res.data);
       })
       .catch((err) => {
@@ -25,7 +22,6 @@ const Comments = ({ comments, setComments, Id }) => {
     navigate(`/dashboard/${e.target.innerHTML}/profile`);
   };
 
-  //   console.log("running");
 
   const commentList = comments.map((comment) => {
     return (

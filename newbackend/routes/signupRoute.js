@@ -26,6 +26,7 @@ signupRoute.post('/', async (req, res) => {
     // })
     try {
         // const messages = {};
+        
         // if (duplicateUser !== null) {
             //     messages["usernameMessage"] = "Username is already taken"
             // }

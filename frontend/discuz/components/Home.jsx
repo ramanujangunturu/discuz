@@ -21,8 +21,7 @@ const Home = () => {
   const handleClick = () => {
     navigate("discussion");
   }
-  const username = sessionStorage.getItem("username");
-  //   console.log(username);
+  
   return (
     <>
       <div className="discussions" ><h3 className="text-4xl font-bold text-center my-6 inline-block main-discussions">Discussions</h3><button class="button-33" role="button" onClick={handleClick}>+ Add Discussion</button></div>
