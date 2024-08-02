@@ -8,7 +8,7 @@ const Chat = ({ socket,update }) => {
   useEffect(() => {
     axios
       .get(
-        `https://trydiscuz.onrender.com/userData/${sessionStorage.getItem("username")}`
+        `http://localhost:5000/userData/${sessionStorage.getItem("username")}`
       )
       .then((res) => setFriends(res.data.friends))
       .catch((err) => console.log(err));

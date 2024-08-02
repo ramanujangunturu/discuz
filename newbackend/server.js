@@ -15,13 +15,17 @@ app.use(cors());
 mongoose.connect("mongodb://0.0.0.0/Users", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+})
+.then(() => {
+  console.log("DB connected");
+})
+.catch((error) => {
+  console.error("DB connection error:", error);
 });
 
-
-
-//this parses data into json format
+// This parses data into JSON format
 app.use(express.json());
-//this parses data into url encoded format
+// This parses data into URL-encoded format
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/signup", signupRoute);
@@ -35,8 +39,6 @@ app.get("/", (req, res) => {
   res.send("default page");
 });
 
-
 app.listen(5000, () => {
-  console.log("Server running");
+  console.log("Server running on port 5000");
 });
-

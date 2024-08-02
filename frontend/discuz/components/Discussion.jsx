@@ -18,7 +18,7 @@ const Discussion = () => {
     } else {
       setError("");
       axios
-        .post("https://trydiscuz.onrender.com/discuz", {
+        .post("http://localhost:5000/discuz", {
           username: username,
           title: title,
           content: content,

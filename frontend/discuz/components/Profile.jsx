@@ -11,7 +11,7 @@ const Profile = () => {
 
   useEffect(() => {
     axios
-      .get(`https://trydiscuz.onrender.com/userData/${username}`)
+      .get(`http://localhost:5000/userData/${username}`)
       .then((res) => {
         console.log(res);
         setUserProfile(res.data);

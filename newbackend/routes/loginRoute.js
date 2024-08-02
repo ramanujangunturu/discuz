@@ -4,6 +4,7 @@ const loginRoute = express.Router();
 const UserModel = require('../models/userModel');
 
 loginRoute.post('/', async (req, res) => {
+    console.log("running the login endpoint")
       const username = req.body.username;
       const password = req.body.password;
       const user = await UserModel.findOne({ username: username });

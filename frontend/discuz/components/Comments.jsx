@@ -8,7 +8,7 @@ const Comments = ({ comments, setComments, Id }) => {
   useEffect(() => {
     console.log("running use Effect");
     axios
-      .get(`https://trydiscuz.onrender.com/discuz/${Id}/comments`)
+      .get(`http://localhost:5000/discuz/${Id}/comments`)
       .then((res) => {
         setComments(res.data);
       })

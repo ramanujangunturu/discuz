@@ -18,7 +18,7 @@ const Signup = () => {
     console.log("inside handle submit");
     e.preventDefault();
     axios
-      .post("https://trydiscuz.onrender.com/signup/check", {
+      .post("http://localhost:5000/signup/check", {
         username: username,
       })
       .then((res) => {
@@ -41,7 +41,7 @@ const Signup = () => {
         if (passwordFlag === true || usernameFlag === true) {
         } else {
           axios
-            .post("https://trydiscuz.onrender.com/signup", {
+            .post("http://localhost:5000/signup", {
               name: name,
               username: username,
               email: email,
